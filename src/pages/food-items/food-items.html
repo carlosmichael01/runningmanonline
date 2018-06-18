@@ -1,0 +1,142 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Food Categories Page -->
+
+<ion-header no-border>
+  <ion-navbar color="orange" hideBackButton>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+   
+<ion-searchbar placeholder="search list.." (ionInput)="filterItems($event)"></ion-searchbar>
+    <!--<ion-buttons end>
+      <button ion-button icon-only (click)="gotoCartPage()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>-->
+    <ion-buttons end>
+      <button ion-button icon-start (click)="gotoFoodSearch()">
+       <ion-icon ios="ios-funnel" md="md-funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+   <ion-buttons end>
+      <button ion-button icon-only (click)="gotoCartPage()">
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge id="cart-badge">{{userData.CART_ITEM_COUNT}}</ion-badge>
+      </button>
+    </ion-buttons>
+ 
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+    <div class="page-title">
+      <h1>DISHES</h1>
+      <p>Freshly cooked!, Deliver within 1 hour</p>
+    </div>
+  </div>
+  <ion-list padding  >
+        <button ion-item class="animated bounceInLeft" *ngFor="let shop of restaurant; let i = index;" (click)="gotoItemDetails($event, shop.product['_id'])">
+            <ion-thumbnail item-left>
+                <img src="{{'http://runningman.cloudapp.net/mobile/product/' + shop.product['image']}}" >
+            </ion-thumbnail>
+            <h2 text-wrap>{{shop.product['name']}}</h2>
+            <!--<p>{{shop.product['desc']}}</p>-->
+            <p>{{shop.product['tags']}}</p>
+             <!--<p>{{shop.product['tags']}}</p>-->
+           <p>  <ion-icon ios="ios-pricetag" md="md-pricetag"></ion-icon> {{shop.name}} </p>
+          <p><ion-icon ios="ios-compass" md="md-compass"></ion-icon> {{shop.location.city + ',' + shop.location.state}} </p>
+           <!--<ion-icon ios="ios-cash" md="md-cash"></ion-icon> -->
+           <h4>RM {{shop.product['selling_price']  | number:'1.2-2' }}  </h4>
+            <!--<ion-badge color="orange">RM {{shop.product['selling_price']}} </ion-badge>-->
+        </button>
+
+    <!--<ion-item class="animated bounceInLeft" *ngFor="let shop of restaurant; let i = index;" (click)="gotoItemDetails(shop.product['_id'])">
+      <ion-thumbnail item-start>
+        <img src="{{'http://runningman-adminapi-backup.azurewebsites.net/uploads/product/' + shop.product['image']}}" >
+      </ion-thumbnail>
+      <h2>{{shop.product['name']}} </h2>
+       <p>{{shop.product['desc']| slice:0:30}}</p>
+     <p><ion-badge color="ash">{{shop.product['tags']}}</ion-badge></p>
+     <h4>RM {{shop.product['selling_price']}}</h4>
+     <ion-badge color="orange">ORDER NOW</ion-badge>
+    </ion-item>-->
+      <!--<p><ion-icon ios="ios-compass" md="md-compass"></ion-icon> {{shop.location.city + ',' + shop.location.state}} </p>-->
+
+ <!--<ion-grid>
+        <ion-row>
+          <ion-col col-6>
+           <ion-badge>RM {{shop.product['selling_price']}}</ion-badge>
+          
+          </ion-col>
+          <ion-col col-2>
+          
+          </ion-col>
+         
+        </ion-row>
+      </ion-grid>-->
+
+ 
+   <!--<ion-grid>
+        <ion-row>
+          <ion-col col-2>
+         <ion-badge item-end color="orange">VIEW MENU</ion-badge>
+          </ion-col>
+          <ion-col col-2 padding-top text-center>
+          
+          </ion-col>
+          <ion-col col-2>
+            
+          </ion-col>
+        </ion-row>
+      </ion-grid>-->
+
+    <!--</ion-item>-->
+    <!--<ion-item class="animated bounceInRight" (click)="gotoCategoryItemList('CHINESS')">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/CHINESS.png">
+      </ion-thumbnail>
+      <h2>{{'FOOD_CATEGORIES.CHINESS' | translate}}</h2>
+    </ion-item>
+    <ion-item class="animated bounceInLeft" (click)="gotoCategoryItemList('COFFEE')">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/COFFEE.png">
+      </ion-thumbnail>
+      <h2>{{'FOOD_CATEGORIES.COFFEE' | translate}}</h2>
+    </ion-item>
+    <ion-item class="animated bounceInRight" (click)="gotoCategoryItemList('DESSERTS')">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/DESSERTS.png">
+      </ion-thumbnail>
+      <h2>{{'FOOD_CATEGORIES.DESSERTS' | translate}}</h2>
+    </ion-item>
+    <ion-item class="animated bounceInLeft" (click)="gotoCategoryItemList('ICECREAMS')">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/ICECREAMS.png">
+      </ion-thumbnail>
+      <h2>{{'FOOD_CATEGORIES.ICECREAMS' | translate}}</h2>
+    </ion-item>
+    <ion-item class="animated bounceInRight" (click)="gotoCategoryItemList('PIZZA')">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/PIZZA.png">
+      </ion-thumbnail>
+      <h2>{{'FOOD_CATEGORIES.PIZZA' | translate}}</h2>
+    </ion-item>
+    <ion-item class="animated bounceInLeft" (click)="gotoCategoryItemList('SALADS')">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/SALADS.png">
+      </ion-thumbnail>
+      <h2>{{'FOOD_CATEGORIES.SALADS' | translate}}</h2>
+    </ion-item>
+    <ion-item class="animated bounceInRight" (click)="gotoCategoryItemList('SNACKS')">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/SNACKS.png">
+      </ion-thumbnail>
+      <h2>{{'FOOD_CATEGORIES.SNACKS' | translate}}</h2>
+    </ion-item>-->
+  </ion-list>
+</ion-content>

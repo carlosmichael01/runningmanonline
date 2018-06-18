@@ -1,0 +1,55 @@
+page-food-item-details {
+   /* img {
+        width: 100%;
+    
+    }
+     h2 {
+         margin:0;
+            font-size: 1.5rem;
+        }
+        p {
+            margin: 0;
+            font-size: 1rem;
+        }*/
+
+    h4 {
+         margin:0;
+        font-size: 1rem;
+        color:gray;
+        }
+    .item {
+        border-bottom: 1.55px dashed #c8c7cc !important;
+    }
+    .item-inner {
+        border-bottom: 0px !important;
+    }
+    .item:first-child {
+        border-top: 1.55px dashed #c8c7cc !important;
+    }
+    .item:last-child {
+        border-bottom: 1.55px dashed #c8c7cc !important;
+    }
+    .grid {
+        padding: 0px !important;
+        .col {
+            .button {
+                padding: 0px !important;
+                margin: 0px !important;
+            }
+        }
+    }
+    .total {
+        font-size: 22px !important;
+        font-weight: bold;
+    }
+    .total-price {
+        font-size: 20px;
+        font-weight: bold;
+    }
+   /* .item-divider{
+        border-bottom: 1px solid grey !important;
+        font-size: 1rem;
+    }*/
+}
+
+

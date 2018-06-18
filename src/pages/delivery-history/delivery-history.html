@@ -1,0 +1,112 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Delivery Tracking Page -->
+
+<ion-header no-border>
+  <ion-navbar color="orange" hideBackButton>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>ORDER HISTORY</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-list>
+    
+  <button class="animated bounceInLeft"  ion-item *ngFor="let item of transactiondata; let i = index;" (click)="gotoItemDetails(item.transaction_id)">
+      <!--<ion-row text-wrap >
+        <ion-col col-6 class="left">
+         <span class="title">  ORDER#: <br >{{item.transaction_id}}</span>
+        </ion-col>
+        <ion-col col-6 class="right">
+        <span class="title">   TOTAL:  RM {{item.payment['amount']}}  <br > {{item.transaction_date  | date:'dd/MM/yyyy h:mm a'}} </span>
+        </ion-col>
+      </ion-row>-->
+      <div  class="detail">
+          <span class="title" item-start>  ORDER#{{item.transaction_id}}</span>
+          <span class="title2" item-end>  RM {{item.payment['amount']}}</span>
+      </div>
+    
+      <div  text-wrap *ngFor="let task of item.task; let x = index;">
+            <div  class="detail"  *ngFor="let taskitem of task.item; let y = index;"> 
+              <h1 text-wrap>{{taskitem.item_name}} x {{taskitem.quantity}} </h1>
+              <h4>{{task.statusmessage}} </h4>
+            </div>
+        </div>
+       <span class="title2"> DATE: {{item.transaction_date  | date:'dd/MM/yyyy h:mm a'}}</span>
+   </button>
+  </ion-list>
+  
+</ion-content>
+
+<!--
+<ion-content id="google-v1">-->
+  <!--<div id="order-info">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2 text-center>
+          <ion-fab edge>
+            <button ion-fab mini color="dark"><ion-icon name="checkmark"></ion-icon></button>
+          </ion-fab>
+        </ion-col>
+        <ion-col col-2 text-center [ngClass]="this.platform.dir()==='ltr'? 'dot-left': 'dot-right'">
+          <span>  ..... </span>
+        </ion-col>
+        <ion-col col-2 text-center>
+          <ion-fab edge>
+            <button ion-fab mini color="dark"><ion-icon name="checkmark"></ion-icon></button>
+          </ion-fab>
+        </ion-col>
+        <ion-col col-2 text-center [ngClass]="this.platform.dir()==='ltr'? 'dot-left': 'dot-right'">
+          <span>  ..... </span>
+        </ion-col>
+        <ion-col col-2 text-center>
+          <ion-fab edge>
+            <button ion-fab mini color="light"><ion-icon name="checkmark"></ion-icon></button>
+          </ion-fab>
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-row">
+        <ion-col col-4 text-center>
+          Delivery
+        </ion-col>
+        <ion-col col-4 text-center>
+          Confirm
+        </ion-col>
+        <ion-col col-4 text-center>
+          Received
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>-->
+  <!--<div id="track-info">
+    <p class="track-title">Order Confirmed!</p>
+    <p class="track-des">Rider is on the way with your order.</p>
+  </div>
+  <div #map id="map"></div>-->
+  <!--<div id="delivery-details">
+    <ion-grid>
+      <ion-row class="item-row" class="animated bounceInLeft" text-wrap *ngFor="let item of transactiondata; let i = index;">
+        <ion-col col-6 class="left">
+          <span class="title"> Order ID:  #{{item.transaction_id}}</span>
+        </ion-col>
+        <ion-col col-6 class="right">
+          <b>Amount:  RM {{item.payment['amount']}} </b> <br> <br> Pending Payment
+        </ion-col>
+        <ion-item  text-wrap *ngFor="let task of item.task; let x = index;">
+            <p *ngFor="let taskitem of task.item; let y = index;"> 
+              <b>{{taskitem.item_name}} x {{taskitem.quantity}} </b><br> 
+              <i>Order Success - {{task.status_timestamp | date:'dd/MM/yyyy HH:mm a'}} </i>
+            </p>
+        </ion-item>
+      
+      </ion-row>
+    </ion-grid>
+  
+  </div>-->
+<!--</ion-content>-->
+

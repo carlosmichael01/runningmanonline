@@ -1,0 +1,127 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- User Information Page -->
+
+<ion-header no-border>
+  <ion-navbar color="orange">
+    <ion-buttons start>
+      <button ion-button color="default" clear (click)="dismiss()">
+        <ion-icon name="close" style="zoom:2.0;"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>SEARCH OPTIONS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+  <div class="animated zoomInUp">
+  <ion-list >
+   <p class="tag">LOCATION</p>
+    <ion-item>
+    <ion-select class="selector" [(ngModel)]="state">
+    <ion-option [selected]="state.name == selcity" *ngFor="let state of deliverystate; let i=index" [value]="state.name">{{state.name}}</ion-option>
+  </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list >
+ <p class="tag">PRICE</p>
+  <ion-item>
+      <ion-select [(ngModel)]="price" multiple="true" cancelText="Cancel" okText="Okay" class="selector">
+        <ion-option value="Affordable">Affordable</ion-option>
+        <ion-option value="Midrange">Mid-Range</ion-option>
+        <ion-option value="Premium">Premium</ion-option>
+      </ion-select>
+    </ion-item>
+  <!--<ion-item>
+    <ion-label>Affordable</ion-label>
+    <ion-checkbox [(ngModel)]="affordable"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Mid-Range</ion-label>
+    <ion-checkbox [(ngModel)]="midrange"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Premium</ion-label>
+    <ion-checkbox [(ngModel)]="premium"></ion-checkbox>
+  </ion-item>-->
+
+</ion-list>
+  <ion-list >
+    <p class="tag">FEATURES</p>
+
+     <ion-item>
+      <ion-select [(ngModel)]="features" multiple="true" cancelText="Cancel" okText="Okay" class="selector">
+        <ion-option value="FreeDelivery">Free Delivery</ion-option>
+        <ion-option value="OpenNow">Open Now</ion-option>
+        <ion-option value="Promotion">Promotion</ion-option>
+        <ion-option value="Halal">Halal</ion-option>
+        <ion-option value="NonHalal">Non-Halal</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list >
+    <p class="tag">CUISINE</p>
+     <ion-item>
+      <ion-select [(ngModel)]="cuisine" multiple="true" cancelText="Cancel" okText="Okay" class="selector">
+        <ion-option value="Japanese">Japanese</ion-option>
+        <ion-option value="Chinese">Chinese</ion-option>
+        <ion-option value="Indian">Indian</ion-option>
+        <ion-option value="Malay">Malay</ion-option>
+        <ion-option value="Italian">Italian</ion-option>
+         <ion-option value="Vietnamese">Vietnamese</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+
+ 
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button round color="orange" (click)="submitSearch()">SEARCH</button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+<!--<ion-content>
+  <img class="logo animated fadeInDown" src="assets/imgs/logo-icon.png">
+  <div class="animated fadeInUp">
+    <p class="title1">Runningman Delivery</p>
+    
+  </div>
+
+  <div  class="animated zoomInUp">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+            <ion-item class="select-box">
+                <ion-label color="orange" >Email</ion-label>
+                <ion-input [(ngModel)]="username"></ion-input>
+              </ion-item>
+                <ion-item class="select-box">
+                <ion-label color="orange">Password</ion-label>
+                <ion-input type="password" [(ngModel)]="password" > </ion-input>
+              </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button round color="orange" (click)="doLogin()"  icon-start>
+           <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon> Log in</button>
+      </ion-col>
+    </ion-row>
+    <p class="title2"> Not registered yet? It's fast and easy </p>
+      <button ion-button clear small color="orange" (click)="doSignup()" > Sign up now!</button>        
+    
+   
+  </div>
+</ion-content>-->

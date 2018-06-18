@@ -1,0 +1,8 @@
+{
+  "name": "Runningman Delivery",
+  "app_id": "a1fe1761",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

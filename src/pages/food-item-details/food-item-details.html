@@ -1,0 +1,136 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Food Item Details Page -->
+
+<ion-header>
+  <ion-navbar color="orange">
+    <ion-buttons start>
+      <button ion-button color="default" clear (click)="dismiss()">
+        <ion-icon name="close" style="zoom:2.0;"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Details</ion-title>
+ 
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list >
+
+	<ion-item class="animated bounceInLeft" text-wrap *ngFor="let item of productdata; let i = index;">
+			<ion-thumbnail item-start>
+				<img src="{{'http://runningman.cloudapp.net/mobile/product/' + item.product['image']}}">
+			</ion-thumbnail>
+			<h2>{{item.product['name']}}</h2>
+
+			<ion-grid>
+				<ion-row>
+					<ion-col col-2>
+						<button ion-button clear item-end color="orange"  (click)="minusQuantity(item.product['selling_price'], item.product['cost_price'])">
+                            <ion-icon name="remove" style="zoom:1.5;"></ion-icon>
+                        </button>
+					</ion-col>
+					<ion-col col-2 padding-top text-center>
+				  	{{item.product['qty']}}
+					</ion-col>
+					<ion-col col-2>
+						<button ion-button clear item-end color="orange" (click)="addQuantity(item.product['selling_price'], item.product['cost_price'])">
+                            <ion-icon name="add" style="zoom:1.5;"></ion-icon>
+                        </button>
+					</ion-col>
+					<ion-col col-6 text-right>
+						<ion-badge item-end color="orange">RM {{item.product['selling_price']  | number:'1.2-2'}}</ion-badge>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+
+<ion-item *ngIf="itemoption?.length > 0">
+  <ion-label>Options:</ion-label>
+  <ion-select [(ngModel)]="option" (ionChange)="onSelectChange($event)">
+   <ion-option *ngFor="let option of itemoption; let i=index" [value]="option._id">{{option.name + '- RM ' + option.price}}</ion-option>
+  </ion-select>
+</ion-item>
+
+    <ion-item class="animated bounceInLeft" text-wrap *ngFor="let addon of itemaddon; let i = index">
+		
+			<h4>{{addon.name}}</h4>
+
+			<ion-grid>
+				<ion-row>
+					<ion-col col-2>
+            <button ion-button clear item-end color="orange" (click) = "minusAddonQuantity(i, addon.price, addon.cost_price)">
+                            <ion-icon name="remove" style="zoom:1.2;"></ion-icon>
+                        </button>
+					</ion-col>
+					<ion-col col-2 padding-top text-center>
+						{{addon.qty}}
+					</ion-col>
+					<ion-col col-2>
+            <button ion-button clear item-end color="orange"  (click)="addAddonQuantity(i, addon.price, addon.cost_price)">
+                            <ion-icon name="add" style="zoom:1.2;"></ion-icon>
+                        </button>
+					</ion-col>
+					<ion-col col-6 text-right>
+						<ion-badge item-end color="orange">RM {{addon.price  | number:'1.2-2'}}</ion-badge>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+
+
+
+
+  </ion-list>
+
+
+ <ion-item>
+ <ion-label color="orange" floating>Instruction...</ion-label>
+    <ion-input  [(ngModel)]="Instruction"></ion-input>
+</ion-item>
+     
+
+
+	<ion-card padding>
+		<ion-grid>
+			<ion-row>
+				<ion-col col-2>
+				</ion-col>
+				<ion-col col-4>
+					<p class="total">Total</p>
+				</ion-col>
+				<ion-col col-6 text-right>
+					<p class="total-price">RM {{totalprice  | number:'1.2-2'}}</p>
+				</ion-col>
+	
+			</ion-row>
+		</ion-grid>
+	</ion-card>
+
+	<div text-center>
+		<button ion-button color="orange" round (click)="AddToCart()">Add to Cart</button>
+	</div>
+
+
+</ion-content>
+
+  <!--<ion-footer>
+  <ion-toolbar>
+    <ion-title>Total: RM {{totalprice | number : '1.2-2'}}</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-left round outline>
+        <ion-icon name="close" style="zoom:1.0;"></ion-icon> Add to Cart
+        
+      </button>
+    </ion-buttons>
+
+
+
+  </ion-toolbar>
+</ion-footer>-->

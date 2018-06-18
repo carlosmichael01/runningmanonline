@@ -1,0 +1,112 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- User Information Page -->
+
+<ion-header no-border>
+  <ion-navbar color="orange" hideBackButton>
+     <ion-buttons start>
+      <button ion-button color="default" clear (click)="dismiss()">
+        <ion-icon name="close" style="zoom:2.0;"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>REGISTER</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ 
+
+  <div class="animated zoomInUp">
+    <ion-row>
+      <ion-col>
+
+        <ion-list inset>
+
+        
+          <!-- Name -->
+          <ion-item>
+             <!--<ion-label color="primary" stacked>First Name</ion-label>-->
+            <ion-input type="text"  placeholder="First Name*" [(ngModel)]="firstname" ></ion-input>
+          </ion-item>
+
+           <ion-item>
+             <!--<ion-label color="primary" stacked>Last Name</ion-label>-->
+            <ion-input type="text"  placeholder="Last Name*" [(ngModel)]="lastname"></ion-input>
+          </ion-item>
+
+           <ion-item>
+             <!--<ion-label color="primary" stacked>Email</ion-label>-->
+            <ion-input type="email"   placeholder="Email*" [(ngModel)]="email" ></ion-input>
+          </ion-item>
+
+
+          <!-- Mobile Number -->
+          <ion-item>
+            <!--<ion-label color="primary" stacked>Contact Number</ion-label>-->
+            <ion-input type="number"  placeholder="Contact Number*" [(ngModel)]="mobile"></ion-input>
+          </ion-item>
+
+          <!-- Location Address1  -->
+        
+            <ion-item>
+          <!--<ion-label color="primary" stacked>Delivery Address</ion-label>-->
+          <!--<p text-wrap>{{delivery_location}}</p>-->
+             <!--<button ion-button small color="primary" (click)="gotoPaymentPage()" item-right>Map</button>-->
+         <ion-input type="text"   placeholder="Full Address*" [(ngModel)]="fulladdress" ></ion-input>
+          </ion-item>
+
+          <!-- Location Address2  -->
+           <!--<ion-item>
+
+            <ion-input type="text"  placeholder="Building Name/Condo Name" [(ngModel)]="legend"></ion-input>
+          </ion-item>-->
+          <ion-item>
+            <!--<ion-label color="primary" stacked>City</ion-label>-->
+            <ion-input type="text"  placeholder="City*" [(ngModel)]="city"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <!--<ion-label color="primary" stacked>City</ion-label>-->
+            <ion-input type="text"  placeholder="State" [(ngModel)]="state"></ion-input>
+          </ion-item>
+
+          <!--<ion-item>-->
+            <!--<ion-label color="primary" stacked>Postal Code</ion-label>-->
+            <!--<ion-input type="text"  placeholder="PostalCode" [(ngModel)]="zipcode"></ion-input>
+          </ion-item>-->
+
+          <!-- Date Time -->
+          <!--<ion-item>
+            <ion-datetime formControlName="datetime" displayFormat="DD MMM, YYYY (HH:mm a)" placeholder="Date*" [(ngModel)]="DeliveryInfoForm.datetime"></ion-datetime>
+          </ion-item>-->
+
+           <!--<button ion-button round color="orange" (click)="gotoPaymentPage()">Set Map Location</button>-->
+ 
+  
+       
+        </ion-list>
+
+          <ion-card >
+             <ion-item>
+             <!--<ion-label color="primary" stacked>First Name</ion-label>-->
+            <ion-input type="password"  placeholder="Password*" [(ngModel)]="password" ></ion-input>
+          </ion-item>
+            <ion-item>
+             <!--<ion-label color="primary" stacked>First Name</ion-label>-->
+            <ion-input type="password"  placeholder="Confirm Password*" [(ngModel)]="confirmpassword"></ion-input>
+          </ion-item>
+
+          </ion-card>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button round color="orange" (click)="doSubmit()">SUBMIT</button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

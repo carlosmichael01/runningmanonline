@@ -1,0 +1,181 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Delivery Confirmation Page -->
+
+<ion-header no-border>
+  <ion-navbar color="orange">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+     
+<!--        
+    <ion-title>Delivery Information</ion-title>
+      <button ion-button end>
+       <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>-->
+<!--
+ <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>-->
+    <ion-title>Delivery Information</ion-title>
+
+
+    <!--<ion-buttons end>
+      <button ion-button icon-only (click)="gotoCartPage()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>-->
+
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding >
+
+ <div  class="animated zoomInUp">
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <!-- Name -->
+          <ion-item>
+             <ion-label color="primary" stacked>First Name</ion-label>
+            <ion-input type="text"  placeholder="First Name*" [(ngModel)]="firstname" ></ion-input>
+          </ion-item>
+
+           <ion-item>
+             <ion-label color="primary" stacked>Last Name</ion-label>
+            <ion-input type="text"  placeholder="Last Name*" [(ngModel)]="lastname"></ion-input>
+          </ion-item>
+
+           <ion-item>
+             <ion-label color="primary" stacked>Email</ion-label>
+            <ion-input type="text"   placeholder="Email*" [(ngModel)]="email"></ion-input>
+          </ion-item>
+
+
+          <!-- Mobile Number -->
+          <ion-item>
+            <ion-label color="primary" stacked>Contact Number</ion-label>
+            <ion-input type="number"  placeholder="Contact Number*" [(ngModel)]="mobile"></ion-input>
+          </ion-item>
+
+          <!-- Location Address1  -->
+        
+            <ion-item>
+          <ion-label color="primary" stacked>Delivery Address</ion-label>
+          <!--<p text-wrap>{{delivery_location}}</p>-->
+             <!--<button ion-button small color="primary" (click)="gotoPaymentPage()" item-right>Map</button>-->
+         <ion-input type="text"   placeholder="Full Address" [(ngModel)]="fulladdress" ></ion-input>
+          </ion-item>
+
+          <!-- Location Address2  -->
+           <!--<ion-item>
+          <ion-label color="primary" stacked>Building Name/Condo Name</ion-label>
+            <ion-input type="text"  placeholder="" [(ngModel)]="legend"></ion-input>
+          </ion-item>-->
+          <ion-item>
+            <ion-label color="primary" stacked>City</ion-label>
+            <ion-input type="text"  placeholder="City*" [(ngModel)]="city"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" stacked>Postal Code</ion-label>
+            <ion-input type="text"  placeholder="PostalCode*" [(ngModel)]="zipcode"></ion-input>
+          </ion-item>
+
+          <!-- Date Time -->
+          <!--<ion-item>
+            <ion-datetime formControlName="datetime" displayFormat="DD MMM, YYYY (HH:mm a)" placeholder="Date*" [(ngModel)]="DeliveryInfoForm.datetime"></ion-datetime>
+          </ion-item>-->
+
+           <!--<button ion-button round color="orange" (click)="gotoPaymentPage()">Set Map Location</button>-->
+ 
+  
+       
+        </ion-list>
+
+  
+      </ion-col>
+    </ion-row>
+    </div>
+  
+
+
+<!--<ion-item>
+  <ion-label>Delivery Schedule</ion-label>
+  <ion-select interface="popover">
+    <ion-option value="Now">Now</ion-option>
+    <ion-option value="Later">Later</ion-option>
+  </ion-select>
+</ion-item>-->
+
+  <ion-list radio-group>
+    <p class="tag">Delivery Schedule</p>
+    <ion-item>
+      <ion-label>Deliver Now</ion-label>
+      <ion-radio [checked]="asapselected" value="ASAP" [disabled]="asapdisable" (ionSelect)="setSchedule('ASAP')"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Deliver Later</ion-label>
+      <ion-radio [checked]="laterselected" value="Later" (ionSelect)="setSchedule('Later')"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+    <!--<ion-item class="select-box">
+    <ion-label>Delivery Schedule</ion-label>
+      <ion-select interface="popover" [(ngModel)]="Schedule" #S>
+    <ion-option value="ASAP" [selected]="true" (ionSelect)="setSchedule('ASAP')">Now</ion-option>
+    <ion-option value="Later" (ionSelect)="setSchedule('Later')">Later</ion-option>
+  </ion-select>
+        </ion-item>-->
+  <ion-card *ngIf="DeliveryLater">
+<ion-item>
+  <ion-label>Delivery Date</ion-label>
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="DeliveryDate" min="{{mindate}}"  ></ion-datetime>
+</ion-item>
+   <ion-item>
+      <ion-label>Delivery Time</ion-label>
+      <ion-datetime displayFormat="hh:mm A" [(ngModel)]="DeliveryTime"  ></ion-datetime>
+    </ion-item>
+
+        
+    </ion-card>
+
+    <!-- Button  -->
+    <ion-row>
+      <ion-col>
+        
+        <button ion-button round color="orange" (click)="gotoPaymentPage()">Proceed to Payment</button>
+      </ion-col>
+    </ion-row>
+
+
+  <!--<form [formGroup]="PaymentForm" novalidate class="animated zoomInUp">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input type="text" formControlName="cardName" placeholder="Card Name*" [(ngModel)]="PaymentForm.cardName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" formControlName="cardNumber" placeholder="Card Number*" [(ngModel)]="PaymentForm.cardNumber"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" formControlName="expireDate" placeholder="Expire Date*" [(ngModel)]="PaymentForm.expireDate"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" formControlName="cvcType" placeholder="CVC*" [(ngModel)]="PaymentForm.cvcType"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button round color="orange">{{'PAYMENT.BUTTON' | translate}}</button>
+      </ion-col>
+    </ion-row>
+  </form>-->
+</ion-content>

@@ -1,0 +1,72 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Cart Page -->
+
+<ion-header no-border>
+	<ion-navbar color="orange" hideBackButton>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>YOUR CART</ion-title>
+	<ion-buttons end>
+      <button ion-button icon-only >
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge id="cart-badge">{{userData.CART_ITEM_COUNT}}</ion-badge>
+      </button>
+    </ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+
+ <div class="contents" *ngIf="iscartempty === true">
+      <img class="logo animated fadeInDown" src="assets/imgs/checkoutempty.png">
+         <h2>Oops.. Your cart is empty!</h2>
+    <button ion-button small round color="orange" (click)="backtoShop()" > Return to Shop!</button>        
+    </div>
+
+	<ion-list padding *ngIf="iscartempty === false">
+		<ion-item class="animated bounceInLeft"  *ngFor="let order of cartorders; let i = index;">
+			<ion-thumbnail item-start>
+				<img src="{{'http://runningman.cloudapp.net/mobile/product/' + order.item_image}}">
+			</ion-thumbnail>
+			<h2 text-wrap>{{order.item_name + ' X' + order.quantity}}</h2>
+			<p  text-wrap> {{order.addon_display}} </p>
+			<p  text-wrap> {{order.option_display}} </p>
+			
+			<ion-grid>
+				<ion-row>
+					<ion-col col-6 >
+					<ion-badge item-end color="orange">RM {{order.price.toFixed(2)}}</ion-badge>
+					</ion-col>
+					
+					<ion-col col-6 text-right (click)="deleteCartItem(order._id)">
+					<button ion-button clear color="orange" (click)="deleteCartItem(order._id)" >
+						<ion-icon ios="ios-trash" md="md-trash" style="zoom:1.0;"></ion-icon>
+					</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+		<ion-item>
+			Sub Total
+			<span item-end > RM {{cartsubtotal | number : '1.2-2'}} </span>
+		</ion-item>
+		<ion-item>
+			Delivery Cost
+			<span item-end > RM {{totaldeliveryfee | number : '1.2-2'}} </span>
+		</ion-item>
+	
+	</ion-list>
+
+		<div text-center *ngIf="iscartempty === false">
+		<button ion-button color="orange" round (click)="gotoSetLocation()">CHECKOUT</button>
+		</div>
+	
+
+
+	
+</ion-content>

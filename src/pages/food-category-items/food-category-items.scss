@@ -1,0 +1,63 @@
+page-food-category-items {
+    .background {
+        background: url('../assets/imgs/feature-image.png');
+        background-size: cover;
+        height: 20%;
+    }
+    .page-title {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        background: #d44322;
+        padding: 10px;
+        opacity: 0.8;
+        h1 {
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 1.5rem;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+        h2 {
+            padding-top: 3px;
+            font-size: 2rem;
+        }
+        p {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+    }
+    .item {
+        border-bottom: 1.55px dashed #c8c7cc !important;
+              h2 {
+            padding-top: 3px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p {
+            margin-top: 2px;
+            font-size: 1rem;
+        }
+    }
+    .item-inner {
+        border-bottom: 0px !important;
+    }
+    .item:first-child {
+        border-top: 1.55px dashed #c8c7cc !important;
+    }
+    .item:last-child {
+        border-bottom: 1.55px dashed #c8c7cc !important;
+    }
+    .grid {
+        padding: 0px !important;
+        .col {
+            .button {
+                padding: 0px !important;
+                margin: 0px !important;
+            }
+        }
+    }
+}

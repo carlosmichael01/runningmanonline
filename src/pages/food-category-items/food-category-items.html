@@ -1,0 +1,100 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Food Category Item Page -->
+
+<ion-header no-border>
+  <ion-navbar color="orange" hideBackButton>
+    <ion-buttons start>
+      <button ion-button color="default" clear (click)="dismiss()">
+        <ion-icon name="close" style="zoom:2.0;"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{'FOOD_ITEMS.TITLE' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+    <div class="page-title">
+      <h1>{{shopName}}</h1>
+       <p>{{shopInfo  | slice:0:80}}</p>
+    </div>
+  </div>
+
+   <ion-list padding>
+  <button ion-item class="animated bounceInLeft" *ngFor="let item of shopDetail; let i = index" (click)="gotoItemDetails(item._id)">
+            <ion-thumbnail item-start>
+              <img src="{{'http://runningman.cloudapp.net/mobile/product/' + item.image}}">
+            </ion-thumbnail>
+
+        <h2 text-wrap> {{item.name}}</h2>
+        <p>{{item.desc}}</p>
+        <ion-badge color="orange">RM {{item.selling_price  | number:'1.2-2'}}</ion-badge>
+        </button>
+
+<!--<ion-grid>
+        <ion-row>
+          <ion-col col-2>
+            <button ion-button clear item-end color="orange" [disabled]="!item.quantity" (click)="minusQuantity(item, i)">
+              <ion-icon name="remove" style="zoom:1.8;"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-2 padding-top text-center>
+            <span>{{item.quantity}}</span>
+          </ion-col>
+          <ion-col col-2>
+            <button ion-button clear item-end color="orange" (click)="addQuantity(item, i)">
+              <ion-icon name="add" style="zoom:1.8;"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>-->
+
+  </ion-list>
+     
+    <!--<ion-item class="animated bounceInLeft" text-wrap *ngFor="let item of shopDetail; let i = index">
+
+      <ion-thumbnail item-start (click)="gotoItemDetails(item._id)">
+        <img src="{{'http://runningman-adminapi-backup.azurewebsites.net/uploads/product/' + item.image}}">
+      </ion-thumbnail>
+
+      <h2 (click)="gotoItemDetails(item._id)"> {{item.name}}</h2>
+      <p (click)="gotoItemDetails(item._id)">{{item.desc  | slice:0:30}}</p>
+      <ion-badge color="orange"> {{'RM' + item.selling_price}}</ion-badge>
+    </ion-item>-->
+
+
+  <!--<ion-list padding>
+    <ion-item class="animated bounceInLeft" text-wrap *ngFor="let item of foodItems; let i = index">
+
+      <ion-thumbnail item-start>
+        <img src="http://runningman-adminapi-backup.azurewebsites.net/uploads/shop/1499226545736.jpg">
+      </ion-thumbnail>
+
+      <h2 (click)="gotoItemDetails()">Productu name</h2>
+      <p (click)="gotoItemDetails()">descripton</p>
+      <ion-badge item-end color="orange">RM 10</ion-badge>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2>
+            <button ion-button clear item-end color="orange" [disabled]="!foodItems[i].quantity" (click)="minusQuantity(item, i)">
+              <ion-icon name="remove" style="zoom:1.8;"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-2 padding-top text-center>
+            <span>{{foodItems[i].quantity}}</span>
+          </ion-col>
+          <ion-col col-2>
+            <button ion-button clear item-end color="orange" (click)="addQuantity(item, i)">
+              <ion-icon name="add" style="zoom:1.8;"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>-->
+</ion-content>

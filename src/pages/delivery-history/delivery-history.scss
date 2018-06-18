@@ -1,0 +1,269 @@
+page-delivery-history {
+   /* #google-v1 {
+        overflow-y: hidden;
+        #order-info {
+            height: 15%;
+            background: $orange;
+            .grid {
+                padding: 0px !important;
+                .dot-left {
+                    color: #fff;
+                    font-size: 25px;
+                    left: 25px;
+                    text-align: center;
+                }
+                .dot-right {
+                    color: #fff;
+                    font-size: 25px;
+                    right: 25px;
+                    text-align: center;
+                }
+                .custom-row {
+                    margin-top: 2%;
+                    color: #fff;
+                    font-weight: bold;
+                    .col {
+                        padding-right: 7%;
+                        color: #efefef;
+                    }
+                }
+            }
+        }
+        #track-info {
+            width: 100%;
+            height: 15%;
+            display: inline-block;
+            .track-title {
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .track-des {
+                text-align: center;
+                color: #343434;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 2px;
+            }
+        }
+        #map {
+            width: 100%;
+            height: 70%;
+        }
+        #delivery-details {
+        
+            background-color: rgb(255, 255, 255);
+            -webkit-box-shadow: -2px -6px 94px -18px #c8c7cc;
+            -moz-box-shadow: -2px -6px 94px -18px #c8c7cc;
+            box-shadow: -2px -6px 94px -18px #c8c7cc;
+            border-radius: 5px;
+            border: 1px solid #c8c7cc;
+            .left {
+                width: 60%;
+                 border-top: 1px solid #333;
+                border-bottom: 1px solid #333;
+                .title {
+                    font-size: 14px;
+                    color: #d0340f;
+                    font-weight: bold;
+                }
+            }
+            .right {
+                width: 40%;
+                line-height: 10px;
+                padding-top: 2%;
+                padding-left: 2%;
+                border-left: 1px solid #333;
+                border-bottom: 1px solid #333;
+                border-top: 1px solid #333;
+                   .title {
+                    font-size: 14px;
+                    color: #ff0000;
+                    font-weight: bold;
+                }
+            }
+             .item-row{
+            border: 1px solid #333;
+            padding-left: 5px;
+             .title {
+                    font-size: 14px;
+                    color: #ff0000;
+                    font-weight: bold;
+                }
+   
+                }
+        }
+       
+    }*/
+ 
+ 
+    .item-inner {
+        border-bottom: 0px !important;
+    }
+    .item:first-child {
+        border-top: 1.55px solid !important;
+    }
+    .item:last-child {
+        border-bottom: 1.55px solid  !important;
+    }
+    .selector {
+   /* font-family: SFNSDisplay;
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: 0.1px;
+    color: #29235e;*/
+    background-color: #ffffff;
+    width: 100% !important;
+    max-width: 100% !important;
+   /* justify-content: center;
+    border: solid 2px #e8ebf0;
+    background-color: #ffffff;
+    text-align: center;*/
+  }
+
+  #cart-btn {
+   position: relative;
+}
+
+#cart-badge {
+   position: absolute;
+   bottom: 20px;
+   right: 10px;
+   font-size: 9px;
+}
+
+  #img-btn {
+   position: relative;
+}
+
+#img-badge {
+   position: absolute;
+   top: 5%;
+   right: 80%;
+   font-size: 1.2rem;
+}
+
+.item .icon .icon-badge {
+  position: absolute;
+  top: 3px;
+  right: 0px;
+  font-size: 8px;
+}
+
+.item .title {
+ font-size: 13px;
+font-weight: bold;
+color: red;
+}
+.item .title2 {
+ font-size: 13px;
+font-weight: bold;
+}
+
+ overflow-y: hidden;
+        #order-info {
+            height: 15%;
+            background: $orange;
+            .grid {
+                padding: 0px !important;
+                .dot-left {
+                    color: #fff;
+                    font-size: 25px;
+                    left: 25px;
+                    text-align: center;
+                }
+                .dot-right {
+                    color: #fff;
+                    font-size: 25px;
+                    right: 25px;
+                    text-align: center;
+                }
+                .custom-row {
+                    margin-top: 2%;
+                    color: #fff;
+                    font-weight: bold;
+                    .col {
+                        padding-right: 7%;
+                        color: #efefef;
+                    }
+                }
+            }
+        }
+        #track-info {
+            width: 100%;
+            height: 15%;
+            display: inline-block;
+            .track-title {
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .track-des {
+                text-align: center;
+                color: #343434;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 2px;
+            }
+        }
+        #map {
+            width: 100%;
+            height: 70%;
+        }
+
+    .item {
+        border-bottom: 1.55px solid !important;
+        h2 {
+            padding-top: 3px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+           h1 {
+            text-transform: uppercase;
+             padding-top: 3px;
+            font-size: 1.3rem;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+          h4 {
+            margin-top:5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            
+        }
+        p {
+            margin-top: 2px;
+            font-size: 1rem;
+        }
+    }
+
+      .left {
+                width: 60%;
+               
+                border-bottom: 1px solid #333;
+                .title {
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+            }
+            .right {
+                width: 40%;
+           
+                border-left: 1px solid #333;
+                border-bottom: 1px solid #333;
+               
+                   .title {
+                    font-size: 14px;
+                 
+                    font-weight: bold;
+                }
+            }
+    .detail{
+              border-bottom: 1.55px dashed #c8c7cc !important;
+              padding: 3px;
+    }
+             
+       
+    
+
+}

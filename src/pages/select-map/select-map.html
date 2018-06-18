@@ -1,0 +1,58 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Food Category Item Page -->
+
+<ion-header no-border>
+  <ion-navbar color="orange" hideBackButton>
+    <ion-buttons end>
+      <button ion-button color="default" clear (click)="dismiss()">
+        <ion-icon name="close" style="zoom:2.0;"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Delivery Location</ion-title>
+      <ion-buttons start>
+      <!--<button ion-button icon-only (click)='toggleSearch()'>
+        <ion-icon name="search"></ion-icon>
+      </button>-->
+      <button ion-button icon-only (click)='choosePosition()'>
+        <ion-icon name="ios-locate-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<div class="switch">
+<button ion-button color="orange" round *ngIf="ismapselect" (click)="gotoDeliveryConfirmPage()">Proceed</button>
+  <!--<button ion-button color="light" (click)="(switch = 'list'); " [class.active]="(switch == 'list')" icon-only><ion-icon name="list"></ion-icon></button>-->
+</div>
+
+<div class="currentitem" *ngIf="currentregional">
+  <button ion-item no-lines (click)="viewPlace(currentregional.title)">
+    <h2>{{ currentregional.title }}</h2>
+    <ion-note item-right icon-only><ion-icon name="ios-arrow-forward"></ion-icon></ion-note>
+  </button>
+</div>
+
+<ion-content>
+  <!--<div [hidden]="!(switch == 'list')">
+    <ion-list>
+      <ion-item>
+        <h2>Test</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Test</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Test</h2>
+      </ion-item>
+    </ion-list>
+  </div>-->
+
+  <div class="map" >
+    <ion-searchbar #searchbar placeholder="search location.." ></ion-searchbar>
+    <div id="map" #map></div>
+  </div>
+</ion-content>

@@ -1,0 +1,86 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Food Categories Page -->
+
+<ion-header no-border>
+  <ion-navbar color="orange">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <!--<ion-title> RESTAURANT </ion-title>-->
+   <ion-searchbar placeholder="search list.." (ionInput)="filterItems($event)"></ion-searchbar>
+  
+     <ion-buttons end>
+      <button ion-button icon-start (click)="gotoFoodSearch()">
+       <ion-icon ios="ios-funnel" md="md-funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="gotoCartPage()">
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge id="cart-badge">{{userData.CART_ITEM_COUNT}}</ion-badge>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+
+
+ <!--<ion-toolbar>
+      <ion-title>Subheader</ion-title>
+  </ion-toolbar>-->
+
+
+   <!--<ion-toolbar color="orange">
+    
+ 
+ 
+  </ion-toolbar>-->
+
+</ion-header>
+
+<ion-content>
+
+   <div class="background">
+    <div class="page-title">
+      <h1>RESTAURANT</h1>
+      <p>Deliver within 1 hour, No minimum order</p>
+    </div>
+  </div>
+
+  <ion-list padding>
+     <button ion-item class="animated bounceInLeft" *ngFor="let shop of restaurant; let i = index;" (click)="gotoCategoryItemList(shop._id)">
+          
+            <ion-thumbnail item-left>
+             
+            <img src="{{'http://runningman.cloudapp.net/mobile/shop/' + shop.logo}}" >
+                <ion-badge id="img-badge" item-right color="ash" *ngIf="shop.isopen">CLOSE</ion-badge>
+            </ion-thumbnail>
+            <h2 text-wrap>{{shop.name}}</h2>
+            <p>{{shop.desc}}</p>
+            <p><ion-icon ios="ios-cash" md="md-cash"></ion-icon> Delivery Fee: RM {{shop.delivery_fee}} </p>
+            <p><ion-icon ios="ios-compass" md="md-compass"></ion-icon> {{shop.location.city + ',' + shop.location.state}} </p>
+        </button>
+  </ion-list>
+</ion-content>
+<!--<ion-footer >
+  <ion-toolbar>
+      <ion-label>Location</ion-label>
+    <ion-select class="selector">
+    <ion-option value="f" [selected]="true">Kuala Lumpur</ion-option>
+    <ion-option value="m">Male</ion-option>
+  </ion-select>
+
+   
+   
+   <ion-buttons end>
+      <button ion-button icon-start (click)="gotoCartPage()">
+       <ion-icon ios="ios-funnel" md="md-funnel"></ion-icon>
+       Sort
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>-->

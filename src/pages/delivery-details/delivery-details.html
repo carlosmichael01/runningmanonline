@@ -1,0 +1,72 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Food Item Details Page -->
+
+<ion-header>
+  <ion-navbar color="orange">
+    <ion-buttons start>
+      <button ion-button color="default" clear (click)="dismiss()">
+        <ion-icon name="close" style="zoom:2.0;"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Order Details</ion-title>
+ 
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="animated fadeInUp">
+		<p class="title2">Runningman Instant Delivery Sdn Bhd (1156700-H) <br>feedback@runningman.my <br> GST ID: 000620933120</p>
+  </div>
+	<ion-list   *ngFor="let order of orderdetails; let i = index;">
+	<ion-item>
+		<span class="title1"> #{{order.transaction_id}} </span>
+		<span item-end > {{order.transaction_date  | date}} </span>
+	</ion-item>
+		<div *ngFor="let items of order.task; let y = index;">
+		<ion-item class="animated bounceInLeft"  *ngFor="let item of items.item; let x = index;">
+			<ion-thumbnail item-start>
+				<img src="{{'http://runningman.cloudapp.net/mobile/product/' + item.item_image}}">
+			</ion-thumbnail>
+			<h2 text-wrap>{{item.item_name + ' X' + item.quantity}}</h2>
+			<p  *ngFor="let addon of item.add_on; let z = index;" text-wrap> + {{addon.name}} X {{addon.quantity}} </p>
+			<p  *ngFor="let option of item.option; let z = index;" text-wrap> OPTION: {{option.name}} X {{option.quantity}} </p>
+			<ion-grid>
+				<ion-row>
+					<ion-col col-6 >
+					<ion-badge item-end color="orange">RM {{item.selling_price | number : '1.2-2'}}</ion-badge>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+		</div>
+		<ion-item>
+			Sub Total
+			<span item-end > RM {{order.payment.subtotal | number : '1.2-2'}} </span>
+		</ion-item>
+	<ion-item>
+			Delivery Cost
+			<span item-end > RM {{order.payment.delivery_cost  | number : '1.2-2'}} </span>
+		</ion-item>
+			<ion-item>
+			Surcharge
+			<span item-end > RM {{order.payment.surcharge  | number : '1.2-2'}} </span>
+		</ion-item>
+		<ion-item>
+			GST (6%)
+			<span item-end > RM {{order.payment.gst  | number : '1.2-2'}} </span>
+		</ion-item>
+			<ion-item>
+				<span class="title2" > Total </span>
+			<span item-end  class="title2" > RM {{order.payment.amount  | number : '1.2-2'}} </span>
+		</ion-item>
+	
+	</ion-list>
+
+</ion-content>
+
+  

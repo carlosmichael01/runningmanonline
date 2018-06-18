@@ -1,0 +1,57 @@
+page-payment {
+    .item-button {
+        height: 2.8em !important;
+    }
+    .card-img {
+        width: 70px;
+    }
+    .tag {
+        font-size: 16px;
+        font-weight: bold;
+        color: #424242;
+    }
+      .item {
+        border-bottom: 1.55px dashed #c8c7cc !important;
+        h2 {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+          h4 {
+            margin-top:5px;
+            font-size: 1rem;
+        }
+        p {
+            margin-top: 2px;
+            font-size: 1rem;
+        }
+    }
+    .item-inner {
+        border-bottom: 0px !important;
+    }
+    .item:first-child {
+        border-top: 1.55px dashed #c8c7cc !important;
+    }
+    .item:last-child {
+        border-bottom: 1.55px dashed #c8c7cc !important;
+    }
+    .grid {
+        padding: 0px !important;
+        .col {
+            .button {
+                padding: 0px !important;
+                margin: 0px !important;
+            }
+        }
+    }
+    .total {
+        font-size: 22px !important;
+        font-weight: bold;
+    }
+    .total-price {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .colitem{
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,119 @@
+<!-- 
+  - @author    Ionic Bucket <ionicbucket@gmail.com>
+  - @copyright Copyright (c) 2017
+  - @license   Fulcrumy
+-->
+<!-- Payment Page -->
+
+<ion-header no-border>
+  <ion-navbar color="orange" hideBackButton>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Payment Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-list>
+		<ion-item>
+			Sub Total
+      <span item-end > RM {{subtotal}} </span>
+		</ion-item>
+		<ion-item>
+			Delivery Cost
+			<span item-end > RM {{delivery_cost}} </span>
+		</ion-item>
+		<ion-item>
+			Surcharge
+			<span item-end > RM {{surcharge}} </span>
+		</ion-item>
+		<ion-item>
+			GST (6%)
+		<span item-end > RM {{gst}} </span>
+		</ion-item>
+ 
+  
+	</ion-list>
+	<ion-card>
+		<ion-grid>
+			<ion-row>
+				<ion-col col-1>
+				</ion-col>
+				<ion-col col-5>
+					<p class="total">Total</p>
+				</ion-col>
+				<ion-col col-5 text-right>
+					<p class="total-price"> RM {{overalltotal}} </p>
+				</ion-col>
+			<ion-col col-1>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-card>
+
+
+    <ion-item>
+ <ion-label color="orange">Coupon Code</ion-label>
+    <ion-input placeholder="Enter here.." [(ngModel)]="coupon_code"></ion-input>
+   <button ion-button small color="orange" (click)="getPromoDiscount()"  item-right>Apply</button>
+  </ion-item>
+
+    <!--<ion-item class="select-box">
+      <ion-label>Payment Method</ion-label>
+      <ion-select [(ngModel)]="gender" interface="popover">
+        <ion-option  [selected]="true" value="f">Cash on Delivery</ion-option>
+        <ion-option value="m">Debit Card</ion-option>
+      </ion-select>
+    </ion-item>
+     <ion-row>
+      <ion-col text-center>
+        <button ion-button round color="orange">Complete</button>
+      </ion-col>
+    </ion-row>-->
+
+
+  <ion-list radio-group>
+    <p class="tag">Payment Method</p>
+     <ion-item>
+      <ion-label>Cash on Delivery</ion-label>
+      <ion-radio checked="true" value="cash"></ion-radio>
+    </ion-item>
+    <!--<ion-item>
+      <ion-label>Debit Card</ion-label>
+      <ion-radio value="card"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Credit Card</ion-label>
+      <ion-radio value="card"></ion-radio>
+    </ion-item>-->
+  </ion-list>
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button round color="orange" (click)="CompleteTransaction()">Complete</button>
+      </ion-col>
+    </ion-row>
+
+  <!--<ion-list radio-group>
+    <p class="tag">Select Credit Card</p>
+    <ion-item>
+      <button class="card-img" ion-button clear color="orange">
+        <img src="assets/imgs/mastercard.png">
+      </button>
+      <button class="card-img" ion-button clear color="orange">
+        <img src="assets/imgs/PayPalCard.png">
+      </button>
+      <button class="card-img" ion-button clear color="orange">
+        <img src="assets/imgs/visa.png">
+      </button>
+      <button class="card-img" ion-button clear color="orange">
+        <img src="assets/imgs/amex.png">
+      </button>
+    </ion-item>
+  </ion-list>
+
+  <form [formGroup]="PaymentForm" novalidate class="animated zoomInUp">
+   
+  </form>-->
+</ion-content>
